@@ -1,0 +1,394 @@
+
+# Anthropic 网络安全技能库
+
+### 面向 AI 智能体的最大开源网络安全技能库
+
+**818 项生产级网络安全技能 · 34 个安全领域 · 6 大框架映射 · 支持 26 款以上 AI 平台**
+
+[快速上手](#快速上手) · [内容概览](#内容概览--34-个安全领域) · [框架体系](#六大框架一套技能库) · [支持平台](#兼容平台) 
+
+---
+
+> ⚠️ **社区项目** — 本项目由社区独立创建，不属于 Anthropic PBC 官方项目。
+>
+> 🔐 **仅可在授权与合法场景下使用。** 本库包含攻击性与双重用途技术（例如红队 C2、钓鱼模拟、漏洞利用），仅用于**经授权的渗透测试、安全研究、防御工作与教育培训**。仅可针对你拥有所有权或已获得**书面明确许可**的系统开展相关操作，并遵守所有适用法律法规与行动规则。你需要自行承担使用本技能库产生的全部责任。详见 [SECURITY.md](SECURITY.md) 与 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)。
+
+---
+
+## 为任意 AI 智能体赋予资深安全分析师的能力
+
+初级分析师知道，面对可疑内存转储文件该运行哪条 Volatility3 插件、哪些 Sigma 规则可以捕获 Kerberoasting（金票据前置攻击），以及如何跨三大云服务商梳理入侵范围。**你的 AI 智能体并不清楚——除非为它配备这套技能。**
+
+这个代码仓库包含 **818 项结构化网络安全技能**，覆盖 **34 个安全领域**，所有技能均遵循 [agentskills.io](https://agentskills.io) 开源标准。该技能库可对接**六大行业框架**——MITRE ATT&CK、NIST CSF 2.0、MITRE ATLAS、MITRE D3FEND、NIST AI RMF 以及 MITRE 反欺诈框架（F3）——每项技能仅映射与其所属领域**相关的框架**（取证类技能对应 ATT&CK + CSF；AI 安全类技能额外关联 ATLAS 与 AI RMF）。克隆仓库，让你的智能体读取这套库，下次安全调查就能在数秒内获得专家级指引。
+
+---
+
+## 六大框架，一套技能库
+
+每项技能仅绑定适配其主题的框架——ATT&CK 与 NIST CSF 几乎覆盖全部技能，而 ATLAS、AI RMF、D3FEND、F3 只在对应场景启用。**817 项技能的框架覆盖情况：**
+
+- MITRE ATT&CK **805** 项
+- NIST CSF 2.0 **804** 项
+- MITRE D3FEND **139** 项
+- NIST AI RMF **97** 项
+- MITRE F3 **94** 项
+- MITRE ATLAS **93** 项
+
+| 框架 | 版本 | 框架范围 | 映射对象 |
+|---|---|---|---|
+| [MITRE ATT&CK](https://attack.mitre.org) | v19.1 | 15 种战术 · 企业/移动端/工业控制系统 | 攻击者行为与 TTP（战术、技术、流程） |
+| [NIST CSF 2.0](https://www.nist.gov/cyberframework) | 2.0 | 6 项职能 · 22 个类别 · 106 个子类别 | 组织安全态势 |
+| [MITRE ATLAS](https://atlas.mitre.org) | 2026.07 | 101 项技术 · 77 项子技术 | AI/机器学习对抗威胁 |
+| [MITRE D3FEND](https://d3fend.mitre.org) | v1.4.0 | 270 项技术 | 防御对抗措施 |
+| [NIST AI RMF](https://airc.nist.gov/AI_RMF) | 1.0 | 4 项职能（治理/映射/评估/管理） | AI 风险管理 |
+| [MITRE F3（反欺诈框架）](https://ctid.mitre.org/fraud/) | v1.1（2026-04-09） | 8 种战术 · 123 项技术 · 94 项欺诈相关技能 | 依托网络实施的金融欺诈 TTP |
+
+**示例——每项技能仅关联与其相关的框架（部分技能可覆盖全部 6 个框架，部分仅覆盖少数）：**
+
+| 技能 | ATT&CK | NIST CSF | ATLAS | D3FEND | AI RMF | F3 |
+|---|---|---|---|---|---|---|
+| `analyzing-network-traffic-of-malware` | T1071 | DE.CM | AML.T0047 | D3-NTA | MEASURE-2.6 | — |
+| `detecting-business-email-compromise` | T1566 | DE.AE | — | — | — | F1005.006 · 变现 |
+
+---
+
+### 🆕 MITRE 反欺诈框架（F3）——94 项欺诈相关技能
+
+**[MITRE 反欺诈框架（F3）](https://ctid.mitre.org/fraud/)** 于 **2026 年 4 月 9 日**由 MITRE 威胁信息防御中心（CTID）发布，由摩根大通、花旗集团、劳埃德银行集团、渣打银行、CrowdStrike、Verizon Business、FS-ISAC 等机构联合开发。它是一套兼容 ATT&CK 的 TTP 目录，专门针对**依托网络实施的金融欺诈**——填补了 ATT&CK 在初始入侵阶段之后的能力空白。
+
+F3 v1.1 新增了两项 ATT&CK 未收录的**欺诈专属战术**：
+
+- **前置布局（Positioning）**（`FA0001`）——获取访问权限后，用于收集/篡改数据并为欺诈做准备的操作（合成身份信息铺垫、养号、设置收款受益人、SIM 卡置换前置准备、劫持银行会话）。
+- **变现（Monetization）**（`FA0002`）——将窃取资产转换为可用资金（钱骡分层洗钱、APP 欺诈、加密货币套现、信用卡套现、退款/拒付滥用）。
+
+欺诈相关技术使用 `F1XXX` 编号（例如 `F1005.003` 添加受益人、`F1025.003` 电汇转账、`F1007` 浏览器内攻击者）；复用的 ATT&CK 技术继续使用 `T1XXX` 编号。映射关系保存在每项技能的 `mitre_f3:` 前置元数据块内——全部 123 条 F3 v1.1 技术 ID 均已对照上游 STIX 数据包核验。架构说明参见 [`docs/mitre-f3-mapping.md`](docs/mitre-f3-mapping.md)。
+
+---
+
+### MITRE ATT&CK v19.1 — 817 项技能中 805 项完成映射
+
+所有技能均携带 `mitre_attack` 前置元数据列表，使用官方 `mitreattack-python` 库对照 **MITRE ATT&CK v19.1**（最新版本）校验——覆盖企业、工业控制系统和移动端场景下 290 项独立技术与子技术（146 项基础技术 + 144 项子技术），不存在已撤销或废弃的编号。v19.1 对"防御规避"战术进行重构（现已拆分为**隐匿**与**破坏防御**两大模块），如下表所示。
+
+| 战术 | 编号 | 技能数量 |
+|---|---|---|
+| 侦察 | TA0043 | 103 |
+| 资源开发 | TA0042 | 22 |
+| 初始访问 | TA0001 | 467 |
+| 执行 | TA0002 | 350 |
+| 持久化 | TA0003 | 444 |
+| 权限提升 | TA0004 | 464 |
+| 隐匿 | TA0005 | 442 |
+| 破坏防御 | TA0112 | 92 |
+| 凭证获取 | TA0006 | 202 |
+| 发现 | TA0007 | 237 |
+| 横向移动 | TA0008 | 68 |
+| 数据收集 | TA0009 | 172 |
+| 命令与控制 | TA0011 | 123 |
+| 数据外渗 | TA0010 | 82 |
+| 影响 | TA0040 | 50 |
+
+---
+
+## 快速上手
+
+```bash
+# 方式一：npx（推荐）
+npx skills add mukul975/Anthropic-Cybersecurity-Skills
+
+# 方式二：Git 克隆
+git clone https://github.com/mukul975/Anthropic-Cybersecurity-Skills.git
+cd Anthropic-Cybersecurity-Skills
+```
+
+开箱即可在 Claude Code、GitHub Copilot、OpenAI Codex CLI、Cursor、Gemini CLI 以及所有兼容 [agentskills.io](https://agentskills.io) 标准的平台使用。
+
+---
+
+## 🚀 在演示平台体验
+
+直接上手体验 Casky.ai——无需部署。
+
+**[→ 前往 Casky.ai 演示平台](https://casky.ai/?utm_source=github&utm_medium=readme&utm_campaign=cohort_launch#waitlist)**
+
+演示平台支持：
+
+- 在真实靶标上运行网络安全技能演练
+- 实时查看 AI 智能体执行结构化技能的全过程
+- 交互式浏览映射至 MITRE ATT&CK 的工作流
+- 测试威胁狩猎、数字取证与事件响应（DFIR）及渗透测试场景
+
+无需安装，无需配置，打开即可使用。
+
+---
+
+## 项目初衷
+
+2024 年全球网络安全人才缺口高达 **480 万个岗位空缺**（ISC2 数据）。AI 智能体有助于填补人才缺口，但前提是智能体拥有结构化的领域知识。当前的大模型可以写代码、检索网页，却缺少资深分析师所使用的实操流程手册，无法把通用大模型转变为合格的安全分析师。
+
+现有的安全工具仓库大多提供字典、载荷或漏洞利用代码。没有任何仓库能够为 AI 智能体提供资深分析师遵循的**结构化决策流程**：何时选用某项技术、需要检查哪些前置条件、分步执行方式，以及如何验证结果。本项目正是为了解决这个痛点而生。
+
+**Anthropic 网络安全技能库**并非脚本集合或简单清单。它是**原生面向 AI 的知识库**，从零开始基于 [agentskills.io](https://agentskills.io) 标准构建——YAML 前置元数据实现秒级检索，结构化 Markdown 包含分步执行流程，参考文档承载深度技术信息。每一项技能都编码了真实从业者的工作流程，而不是 AI 生成的摘要文本。
+
+---
+
+## 内容概览 — 34 个安全领域
+
+| 领域 | 技能数量 | 核心能力 |
+|---|---|---|
+| 云安全 | 66 | AWS、Azure、GCP 安全加固 · CSPM 云安全态势管理 · 云攻击模拟 · 云取证 |
+| SOC 运营 | 63 | 处置预案 · 升级流程 · 图日志检测 · 桌面推演演练 |
+| 威胁狩猎 | 58 | 基于假设的狩猎 · LOTL 合法工具滥用检测 · EVTX 日志狩猎 · 大规模终端狩猎 |
+| 威胁情报 | 52 | STIX/TAXII · MISP · OpenCTI · 情报源集成 · 攻击者画像 |
+| Web 应用安全 | 46 | OWASP Top 10 · SQL 注入 · XSS 跨站脚本 · SSRF 服务端请求伪造 · 反序列化漏洞 |
+| 网络安全 | 43 | IDS/IPS · 防火墙规则 · VLAN 分段 · 流量分析 |
+| 电子取证 | 41 | 磁盘镜像 · 内存取证 · Hayabusa/KAPE/Plaso 时间线分析 |
+| 身份与访问管理 | 40 | Entra ID/ROADtools · 设备码钓鱼 · PAM 特权访问管理 · 零信任身份体系 |
+| 恶意代码分析 | 39 | 静态/动态分析 · 逆向工程 · 沙箱分析 |
+| 红队 | 35 | ADCS/Certipy · BloodHound CE · Sliver/Havoc C2 · NTLM 中继攻击 |
+| 容器安全 | 33 | K8s RBAC 权限 · 镜像扫描 · Falco · 容器逃逸 |
+| OT/ICS 工业控制系统安全 | 29 | Modbus · DNP3 · IEC 62443 · 历史数据库防御 · SCADA |
+| API 安全 | 28 | GraphQL · REST · OWASP API Top 10 · WAF 绕过 |
+| 事件响应 | 26 | 入侵遏制 · 勒索软件处置 · IR 响应预案 |
+| 漏洞管理 | 25 | Nessus · 扫描流程 · 补丁优先级判定 · CVSS 评分 |
+| 渗透测试 | 23 | 网络 · Web · 云 · 移动端 · NetExec 横向移动 |
+| DevSecOps | 18 | CI/CD 安全 · Trivy 基础设施即代码/镜像扫描 · 代码签名 |
+| 零信任架构 | 18 | BeyondCorp · CISA 成熟度模型 · 微分段 |
+| 终端安全 | 17 | EDR · LOTL 合法工具滥用检测 · 无文件恶意代码 · 持久化机制狩猎 |
+| 钓鱼防御 | 16 | 邮件身份认证 · BEC 商务邮件入侵检测 · 钓鱼事件响应 |
+| 密码学 | 16 | TLS · Ed25519 · 后量子密码迁移 · 密钥管理 |
+| AI 安全 | 14 | LLM 红队测试（garak/PyRIT） · 提示注入 · MCP/智能体安全 · 防护护栏 |
+| 移动端安全 | 13 | Android/iOS 分析 · 移动端渗透测试 · MDM 取证 |
+| 勒索软件防御 | 13 | 前置征兆检测 · 应急响应 · 恢复 · 加密行为分析 |
+| 合规与治理 | 10 | NIST 800-30/RMF · CMMC · HIPAA · TPRM 第三方风险管理 · CIS 基准 |
+| 供应链安全 | 8 | SBOM 软件物料清单 · 依赖混淆 · 恶意包研判 · SLSA/Sigstore |
+| 威胁检测 | 7 | 凭证转储 · 黄金票据伪造 · 票据传递攻击 · LOLBAS · UEBA 内部威胁信号 |
+| 硬件与固件安全 | 6 | CHIPSEC/UEFI 审计 · 安全启动绕过 · TPM 证明 · 启动套件狩猎 |
+| 诱捕技术 | 6 | 蜜标令牌 · 金丝雀令牌 · 入侵检测 |
+| 区块链安全 | 2 | 以太坊智能合约漏洞 · Foundry 审计流程 |
+| 无线安全 | 2 | 低功耗蓝牙攻击检测 · BLE 安全评估 |
+| 隐私合规 | 2 | GDPR 数据主体访问请求 · 隐私影响评估 |
+| 数据保护 | 1 | 使用 Microsoft Purview 实现数据防泄漏 |
+| 紫队演练 | 1 | Atomic Red Team 紫队测试 |
+
+*34 个领域，共 817 项技能。统计数量取自每项技能前置元数据中的 `subdomain` 字段。*
+
+---
+
+## AI 智能体如何使用这套技能库
+
+读取单项技能的前置元数据仅需约 **30 token**（仅前置元数据），完整加载整套工作流需要 **500–2000 token**（完整工作流）。这种渐进式信息架构可以让智能体一次性检索全部 818 项技能，而不会耗尽上下文窗口。
+
+```text
+用户提问："分析这份内存转储，查找凭证窃取痕迹"
+
+智能体内部处理流程：
+
+  1. 扫描 818 项技能的前置元数据（每项约 30 token）
+     → 通过标签、描述、领域筛选，识别出 12 项相关技能
+
+  2. 加载匹配度最高的 3 项：
+     • performing-memory-forensics-with-volatility3（使用 Volatility3 开展内存取证）
+     • hunting-for-credential-dumping-lsass（狩猎 LSASS 凭证窃取行为）
+     • analyzing-windows-event-logs-for-credential-access（分析 Windows 事件日志，查找凭证访问行为）
+
+  3. 分步执行【工作流】章节的结构化指引
+     → 运行 Volatility3 插件，检查 LSASS 访问行为，
+        关联事件日志证据
+
+  4. 使用【验证】章节校验结果
+     → 确认 IOC 指标，将结果映射至 ATT&CK T1003（凭证转储）
+```
+
+**没有这套技能库时**，智能体只能猜测工具命令，遗漏关键步骤。**配备技能库后**，智能体将遵循资深数字取证分析师使用的同一套处置预案。
+
+---
+
+## 技能文件结构
+
+每一项技能都遵循统一的目录结构：
+
+```text
+skills/performing-memory-forensics-with-volatility3/
+├── SKILL.md              ← 技能定义（YAML 前置元数据 + Markdown 正文）
+├── references/
+│   ├── standards.md      ← MITRE ATT&CK、ATLAS、D3FEND、NIST 映射信息
+│   └── workflows.md      ← 深度技术流程参考文档
+├── scripts/
+│   └── process.py        ← 可用的辅助脚本
+└── assets/
+    └── template.md       ← 填写好的检查清单与报告模板
+```
+
+### YAML 前置元数据（真实示例）
+
+```yaml
+---
+name: performing-memory-forensics-with-volatility3
+description: >-
+  使用 Volatility3 框架分析内存转储文件，提取正在运行的进程、网络连接、
+  注入代码以及恶意程序制品。
+domain: cybersecurity
+subdomain: digital-forensics
+tags: [取证, 内存分析, volatility3, 事件响应, dfir]
+atlas_techniques: [AML.T0047]
+d3fend_techniques: [D3-MA, D3-PSMD]
+nist_ai_rmf: [MEASURE-2.6]
+nist_csf: [DE.CM-01, RS.AN-03]
+version: "1.2"
+author: mukul975
+license: Apache-2.0
+---
+```
+
+### Markdown 正文章节
+
+```markdown
+## 适用场景
+触发条件——AI 智能体应当在何时启用本技能？
+
+## 前置要求
+所需工具、权限级别与环境准备。
+
+## 工作流
+分步执行指南，附带具体命令与决策判断点。
+
+## 结果验证
+确认技能执行成功的校验方法。
+```
+
+**前置元数据字段说明**：`name`（短横线命名，1–64 字符），`description`（富含关键词，便于智能体检索），`domain`，`subdomain`，`tags`，`atlas_techniques`（MITRE ATLAS 编号），`d3fend_techniques`（MITRE D3FEND 编号），`nist_ai_rmf`（NIST AI RMF 引用项），`nist_csf`（NIST CSF 2.0 类别）。MITRE ATT&CK 技术映射记录在每项技能的 `references/standards.md` 文件以及版本发布附带的 ATT&CK 导航图层文件中。
+
+---
+
+<details>
+<summary><strong>📊 MITRE ATT&CK 企业矩阵覆盖 — 全部 15 种战术</strong></summary>
+| 战术 | 编号 | 覆盖程度 | 代表性技能 |
+|---|---|---|---|
+| 侦察 | TA0043 | 覆盖完善 | 开源情报、子域名枚举、DNS 侦察 |
+| 资源开发 | TA0042 | 中等覆盖 | 钓鱼基础设施、C2 服务检测 |
+| 初始访问 | TA0001 | 覆盖完善 | 钓鱼模拟、漏洞检测、强制浏览 |
+| 执行 | TA0002 | 覆盖完善 | PowerShell 分析、无文件恶意代码、脚本块日志 |
+| 持久化 | TA0003 | 覆盖完善 | 计划任务、注册表、服务账号、LOTL 合法工具滥用 |
+| 权限提升 | TA0004 | 覆盖完善 | Kerberoasting、AD 攻击、云权限提升 |
+| 隐匿 | TA0005 | 覆盖完善 | 混淆、Rootkit 分析、规避检测 |
+| 破坏防御 | TA0112 | 中等覆盖 | 破坏防御 (T1562)、日志/指标清除、EDR 篡改 |
+| 凭证获取 | TA0006 | 覆盖完善 | Mimikatz 检测、哈希传递、凭证转储 |
+| 发现 | TA0007 | 中等覆盖 | BloodHound、AD 枚举、网络扫描 |
+| 横向移动 | TA0008 | 覆盖完善 | SMB 漏洞、Splunk 检测横向移动 |
+| 数据收集 | TA0009 | 中等覆盖 | 邮件取证、数据暂存检测 |
+| 命令与控制 | TA0011 | 覆盖完善 | C2 心跳通信、DNS 隧道、Cobalt Strike 分析 |
+| 数据外渗 | TA0010 | 覆盖完善 | DNS 数据外渗、DLP 管控、数据泄露检测 |
+| 影响 | TA0040 | 覆盖完善 | 勒索软件防御、加密行为分析、灾难恢复 |
+
+**ATT&CK 导航图层文件**包含在 [v1.0.0 版本发布资源](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/releases/tag/v1.0.0) 中，可可视化查看覆盖范围。
+
+> **注：** ATT&CK v19 于 2026 年 4 月 28 日发布，将原先的防御规避（TA0005）拆分为两项新战术：*隐匿* 与 *破坏防御*。技能映射将在后续版本中更新。
+
+</details>
+
+<details>
+<summary><strong>📊 NIST CSF 2.0 对齐 — 全部 6 项职能</strong></summary>
+
+&nbsp;
+
+| 职能 | 技能数量 | 示例 |
+|---|---|---|
+| **治理（GV）** | 30+ | 风险策略、政策框架、角色与职责 |
+| **识别（ID）** | 120+ | 资产发现、威胁态势评估、风险分析 |
+| **保护（PR）** | 150+ | IAM 加固、WAF 规则、零信任、加密 |
+| **检测（DE）** | 200+ | 威胁狩猎、SIEM 关联、异常检测 |
+| **响应（RS）** | 160+ | 事件响应、取证、入侵遏制 |
+| **恢复（RC）** | 40+ | 勒索软件恢复、业务连续性计划、灾难恢复 |
+
+NIST CSF 2.0（2024 年 2 月）新增了**治理**职能，适用范围从关键基础设施扩展至全部类型组织。技能映射覆盖全部 22 个类别，引用 106 个子类别。
+
+<details>
+<summary><strong>📊 框架深度解析 — ATLAS、D3FEND、AI RMF</strong></summary>
+### MITRE ATLAS 2026.07 — AI/机器学习对抗威胁
+
+ATLAS 收录针对 AI 与机器学习系统的对抗战术、技术与案例。2026.07 版本覆盖 **101 项技术与 77 项子技术**，其中包含 2025 年末新增的智能体 AI 攻击向量：AI 智能体上下文投毒、工具调用滥用、MCP 服务入侵、恶意智能体部署。映射 ATLAS 的技能可帮助智能体识别并防御针对 ML 流水线、模型权重、推理 API、自主工作流的威胁。
+
+### MITRE D3FEND v1.4.0 — 防御对抗措施
+
+D3FEND 是由 NSA 资助的知识图谱，包含 **270 项防御技术**，划分为 7 大战术类别：建模、加固、检测、隔离、诱骗、驱逐、恢复。基于 OWL 2 本体构建，使用统一数字工件层，可实现防御措施与 ATT&CK 攻击技术的双向映射。标记 D3FEND 编号的技能，可让智能体针对检测到的威胁推荐具体防御对策。
+
+### NIST AI RMF 1.0 + 生成式 AI 配套规范（AI 600-1）
+
+AI 风险管理框架定义 4 项核心职能——治理、映射、评估、管理，包含 **72 个子类别**，用于构建可信 AI 系统。生成式 AI 配套规范（AI 600-1，2024 年 7 月）新增 **12 项生成 AI 专属风险类别**，从模型幻觉、数据隐私到提示注入、供应链风险。科罗拉多州 AI 法案（2026 年 2 月生效）为遵循 NIST AI RMF 的组织提供**法律安全港**，因此这套映射直接关系到合规监管。
+
+---
+
+## 兼容平台
+
+**AI 代码助手**
+Claude Code（Anthropic）· GitHub Copilot（微软）· Cursor · Windsurf · Cline · Aider · Continue · Roo Code · Amazon Q Developer · Tabnine · Sourcegraph Cody · JetBrains AI
+
+**命令行智能体**
+OpenAI Codex CLI · Gemini CLI（谷歌）
+
+**自主智能体**
+Devin · Replit Agent · SWE-agent · OpenHands
+
+**智能体框架 & SDK**
+LangChain · CrewAI · AutoGen · Semantic Kernel · Haystack · Vercel AI SDK · 所有兼容 MCP 的智能体
+
+所有支持 [agentskills.io](https://agentskills.io) 标准的平台，无需额外配置即可加载这些技能。
+
+---
+
+## 社区评价
+
+> *"一套真实、整理完备的安全技能库，任意 AI 智能体都可以接入使用。不是教程，也不是博客文章。"*
+> — **[Hasan Toor (@hasantoxr)](https://x.com/hasantoxr/status/2033193922349179249)**，AI/技术创作者
+
+> *"这不是一堆零散安全脚本。它是为 AI 驱动安全工作流从零搭建的结构化操作知识库。"*
+> — **[fazal-sec](https://fazal-sec.medium.com/claude-skills-ai-powered-cybersecurity-the-complete-guide-to-building-intelligent-security-7bb7e9d14c8e)**，Medium
+
+---
+
+## 收录位置
+
+| 收录站点 | 类型 | 链接 |
+|---|---|---|
+| **awesome-agent-skills** | Awesome 清单（收录 1000+ 技能索引） | [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) |
+| **awesome-ai-security** | Awesome 清单（AI 安全工具） | [ottosulin/awesome-ai-security](https://github.com/ottosulin/awesome-ai-security) |
+| **awesome-codex-cli** | Awesome 清单（Codex CLI 资源） | [RoggeOhta/awesome-codex-cli](https://github.com/RoggeOhta/awesome-codex-cli) |
+| **SkillsLLM** | 技能目录与市场 | [skillsllm.com/skill/anthropic-cybersecurity-skills](https://skillsllm.com/skill/anthropic-cybersecurity-skills) |
+| **Openflows** | 信号分析与追踪 | [openflows.org](https://openflows.org/currency/currents/anthropic-cybersecurity-skills/) |
+| **NeverSight skills_feed** | 自动化技能索引 | [NeverSight/skills_feed](https://github.com/NeverSight/skills_feed) |
+
+---
+
+## 版本发布
+
+| 版本 | 日期 | 主要更新 |
+|---|---|---|
+| [v1.0.0](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/releases/tag/v1.0.0) | 2026 年 3 月 11 日 | 734 项技能 · 26 个领域 · MITRE ATT&CK + NIST CSF 2.0 映射 · ATT&CK 导航图层文件 |
+
+v1.0.0 发布后，主分支持续迭代扩充技能，当前库包含 **818 项技能**，支持**六大框架映射**（发布后新增 MITRE ATLAS、D3FEND、NIST AI RMF、MITRE 反欺诈框架）。前往 [Releases 页面](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/releases) 查看最新稳定版本。
+
+---
+
+## 贡献指南
+
+本项目依靠社区贡献持续成长。参与方式如下：
+
+**新增技能** — 先阅读 [SCOPE.md](SCOPE.md)，再参考 [CONTRIBUTING.md](CONTRIBUTING.md) 内的模板。目前内容最薄弱、最适合补充技能的领域：数据保护与紫队演练仅有 1 项技能；区块链安全、无线安全、隐私合规仅有 2 项。每次 PR 仅提交一项技能，标题格式为 `Add skill: your-skill-name`。
+
+**优化现有技能** — 补充框架映射、修正工作流程、更新工具引用，或者贡献脚本与模板。完善已有技能，和新增技能对本库同样重要。
+
+**提交问题反馈** — 发现流程错误或失效脚本？[新建 Issue](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/issues)。
+
+每一份 PR 都会审核技术准确性与 [agentskills.io](https://agentskills.io) 标准合规性。审核由作者本人完成，当前待审核队列较长——部分 PR 已挂起数月。我会逐步处理，小而聚焦的 PR 审核速度最快。查看 [good first issues](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) 寻找入门任务。
+
+本项目遵循[贡献者公约](https://www.contributor-covenant.org/)。参与本项目，即表示你同意遵守这份行为准则。
+
+---
+
+## 许可证
+
+本项目基于 [Apache License 2.0](LICENSE) 协议开源。你可以在个人与商业项目中自由使用、修改、分发这些技能。
+
+---
+
+<div align="center">
