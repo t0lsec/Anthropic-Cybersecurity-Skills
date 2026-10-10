@@ -8,22 +8,6 @@
 
 ### The largest open-source cybersecurity skills library for AI agents
 
-[![GARS-2026 Survey](https://img.shields.io/badge/GARS--2026-Take%20the%20Survey-E8B84B?style=for-the-badge&logo=googleforms&logoColor=black)](https://mahipal.engineer/survey?utm_source=github_badge&utm_medium=readme&utm_campaign=gars2026)
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat-square)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-818-brightgreen?style=flat-square)](#whats-inside--34-security-domains)
-[![Frameworks](https://img.shields.io/badge/frameworks-6-orange?style=flat-square)](#six-frameworks-one-skill-library)
-[![MITRE F3](https://img.shields.io/badge/MITRE-F3_v1.1-blue?style=flat-square)](https://ctid.mitre.org/fraud/)
-[![Domains](https://img.shields.io/badge/domains-34-9cf?style=flat-square)](#whats-inside--34-security-domains)
-[![Platforms](https://img.shields.io/badge/platforms-26%2B-blueviolet?style=flat-square)](#compatible-platforms)
-[![GitHub stars](https://img.shields.io/github/stars/mukul975/Anthropic-Cybersecurity-Skills?style=flat-square)](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/mukul975/Anthropic-Cybersecurity-Skills?style=flat-square)](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/network/members)
-[![Last Commit](https://img.shields.io/github/last-commit/mukul975/Anthropic-Cybersecurity-Skills?style=flat-square)](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/commits/main)
-[![agentskills.io](https://img.shields.io/badge/standard-agentskills.io-ff6600?style=flat-square)](https://agentskills.io)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
-[![Playground](https://img.shields.io/badge/Playground-Casky.ai-blue)](https://casky.ai/?utm_source=github&utm_medium=readme&utm_campaign=cohort_launch#waitlist)
-[![Hermes Agent](https://img.shields.io/badge/Hermes_Agent-compatible-blueviolet?style=flat)](https://github.com/NousResearch/hermes-agent)
-
-
 **818 production-grade cybersecurity skills · 34 security domains · 6 framework mappings · 26+ AI platforms**
 
 [Get Started](#quick-start) · [What's Inside](#whats-inside--34-security-domains) · [Frameworks](#six-frameworks-one-skill-library) · [Platforms](#compatible-platforms) · [Contributing](#contributing)
@@ -368,15 +352,6 @@ All platforms that support the [agentskills.io](https://agentskills.io) standard
 | **Openflows** | Signal analysis & tracking | [openflows.org](https://openflows.org/currency/currents/anthropic-cybersecurity-skills/) |
 | **NeverSight skills_feed** | Automated skills index | [NeverSight/skills_feed](https://github.com/NeverSight/skills_feed) |
 
-## Star history
-
-<a href="https://star-history.dera.page/#mukul975/Anthropic-Cybersecurity-Skills&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=mukul975/Anthropic-Cybersecurity-Skills&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://star-history.dera.page/svg?repos=mukul975/Anthropic-Cybersecurity-Skills&type=Date" />
-   <img alt="Star History Chart" src="https://star-history.dera.page/svg?repos=mukul975/Anthropic-Cybersecurity-Skills&type=Date" width="100%" />
- </picture>
-</a>
 
 ## Releases
 
@@ -400,53 +375,6 @@ Every PR is reviewed for technical accuracy and agentskills.io standard complian
 
 This project follows the [Contributor Covenant](https://www.contributor-covenant.org/). By participating, you agree to uphold this code.
 
-## 🙏 Thanks to our contributors
-
-This library is built by the community. Thank you to everyone who has contributed:
-
-<!-- contributors:start -->
-<p align="center">
-<a href="https://github.com/mukul975" title="mukul975 — maintainer"><img src="https://github.com/mukul975.png?size=100" width="72" height="72" alt="@mukul975"></a>
-<a href="https://github.com/valorisa" title="valorisa — 18 contributions"><img src="https://github.com/valorisa.png?size=100" width="72" height="72" alt="@valorisa"></a>
-<a href="https://github.com/juliosuas" title="juliosuas — 13 contributions"><img src="https://github.com/juliosuas.png?size=100" width="72" height="72" alt="@juliosuas"></a>
-<a href="https://github.com/Daytona39264" title="Daytona39264 — 3 contributions"><img src="https://github.com/Daytona39264.png?size=100" width="72" height="72" alt="@Daytona39264"></a>
-<a href="https://github.com/kevglynn" title="kevglynn — 2 contributions"><img src="https://github.com/kevglynn.png?size=100" width="72" height="72" alt="@kevglynn"></a>
-<a href="https://github.com/andrewibrah" title="andrewibrah — 2 contributions"><img src="https://github.com/andrewibrah.png?size=100" width="72" height="72" alt="@andrewibrah"></a>
-<a href="https://github.com/Bortlesboat" title="Bortlesboat — 1 contribution"><img src="https://github.com/Bortlesboat.png?size=100" width="72" height="72" alt="@Bortlesboat"></a>
-<a href="https://github.com/DevRedious" title="DevRedious — 1 contribution"><img src="https://github.com/DevRedious.png?size=100" width="72" height="72" alt="@DevRedious"></a>
-<a href="https://github.com/ioxoi" title="ioxoi — 1 contribution"><img src="https://github.com/ioxoi.png?size=100" width="72" height="72" alt="@ioxoi"></a>
-<a href="https://github.com/OctoBored" title="OctoBored — 1 contribution"><img src="https://github.com/OctoBored.png?size=100" width="72" height="72" alt="@OctoBored"></a>
-<a href="https://github.com/shanujans" title="shanujans — 1 contribution"><img src="https://github.com/shanujans.png?size=100" width="72" height="72" alt="@shanujans"></a>
-<a href="https://github.com/farhan6667" title="farhan6667 — 1 contribution"><img src="https://github.com/farhan6667.png?size=100" width="72" height="72" alt="@farhan6667"></a>
-<a href="https://github.com/dakshverma23" title="dakshverma23 — 1 contribution"><img src="https://github.com/dakshverma23.png?size=100" width="72" height="72" alt="@dakshverma23"></a>
-<a href="https://github.com/nyxst4ck" title="nyxst4ck — 1 contribution"><img src="https://github.com/nyxst4ck.png?size=100" width="72" height="72" alt="@nyxst4ck"></a>
-</p>
-
-<p align="center"><sub>14 contributors, ordered by contribution count · see the full <a href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills/graphs/contributors">contributor graph</a></sub></p>
-<!-- contributors:end -->
-
-## Community
-
-💬 [Discussions](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/discussions) — Questions, ideas, and roadmap conversations
-🐛 [Issues](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/issues) — Bug reports and feature requests
-🔒 [Security Policy](SECURITY.md) — Responsible disclosure process (48-hour acknowledgment) 
-
-## Citation
-
-If you use this project in research or publications:
-
-```bibtex
-@software{anthropic_cybersecurity_skills,
-  author       = {Jangra, Mahipal},
-  title        = {Anthropic Cybersecurity Skills},
-  year         = {2026},
-  url          = {https://github.com/mukul975/Anthropic-Cybersecurity-Skills},
-  license      = {Apache-2.0},
-  note         = {818 structured cybersecurity skills for AI agents,
-                  mapped to MITRE ATT\&CK, NIST CSF 2.0, MITRE ATLAS,
-                  MITRE D3FEND, and NIST AI RMF}
-}
-```
 
 ## License
 
@@ -455,11 +383,5 @@ This project is licensed under the [Apache License 2.0](LICENSE). You are free t
 ---
 
 <div align="center">
-
-**If this project helps your security work, consider giving it a ⭐**
-
-[⭐ Star](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/stargazers) · [🍴 Fork](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/fork) · [💬 Discuss](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/discussions) · [📝 Contribute](CONTRIBUTING.md)
-
-Community project by [@mukul975](https://github.com/mukul975). Not affiliated with Anthropic PBC.
 
 </div>
